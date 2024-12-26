@@ -29,6 +29,7 @@ public class Application {
      * launch the application
      */
     public static void main(String[] args) throws Exception {
+        /*
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring/dubbo-consumer.xml");
         context.start();
         DemoService demoService = context.getBean("demoService", DemoService.class);
@@ -55,5 +56,13 @@ public class Application {
 
             Thread.sleep(500);
         }
+         */
+
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring/dubbo-consumer.xml");
+        context.start();
+        DemoService demoService = context.getBean("demoService", DemoService.class);
+        String hello = demoService.sayHello("world");
+        System.out.println("result: " + hello);
+
     }
 }
